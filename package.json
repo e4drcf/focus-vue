@@ -1,0 +1,33 @@
+{
+  "name": "focus-vue",
+  "version": "1.0.0",
+  "description": "web app to order the call to your phone number",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "echo 'try to enter - npm run dev'",
+    "dev": "(cd backend && npm run start) & (cd frontend && npm run serve)",
+    "postinstall": "(cd backend && npm install); (cd frontend && npm install);"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e4drcf/focus-vue.git"
+  },
+  "keywords": [
+    "vue",
+    "focus-course",
+    "express",
+    "web-app",
+    "call"
+  ],
+  "author": "Ivan Hranat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/e4drcf/focus-vue/issues"
+  },
+  "homepage": "https://github.com/e4drcf/focus-vue#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-plugin-vue": "^6.0.1"
+  }
+}
