@@ -8,8 +8,8 @@ To install all dependencies run the following command in a project root director
 npm install
 ```
 ## Configuration
-`
-To set the credentials in .env file like the following
+
+Set the credentials in `/backend/.env` file like the following
 ```
 LOGIN = somelogin
 PASSWORD = somepassword
