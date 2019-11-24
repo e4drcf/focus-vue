@@ -24,7 +24,7 @@ Application will be available at `localhost:8080`
 
 - [x] Support a bunch of bridges
 - [x] Phone number validation on front and back side
-- [x] Timer untill the call
+- [ ] Timer untill the call
 - [x] Logging
 - [x] Error handling
 - [x] Improved UI
