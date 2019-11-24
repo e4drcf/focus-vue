@@ -12,7 +12,7 @@ const log = metalog({
 	writeBuffer: 64 * 1024,
 	keepDays: 5,
 	toStdout: [],
-}).bind('app1');
+}).bind('app');
 
 
 const url = 'https://uni-call.fcc-online.pl';
@@ -34,8 +34,16 @@ app.use(function(req, res, next) {
 });
 app.use(bodyParser.text());
 app.use(bodyParser.json());
+const requestStatuses = {
+	'ANSWERED': 'ANSWERED',
+	'FAILED': 'FAILED',
+	'BUSY': 'BUSY',
+	'NO ANSWER': 'NO ANSWER',
+
+};
 
 let currentStatus;
+
 app.post('/call', async function (req, res) {
 	try {
 		let data = req.body;
@@ -47,17 +55,19 @@ app.post('/call', async function (req, res) {
 			bridgePool.forEach((element,index) => {
 				let interval = setInterval(async () => {
 					let status = await element.getStatus();
-					
-					if (currentStatus !== status) {
+					const isCurrentStatusValide = () => {
+						return currentStatus !== status;
+					};
+					if (isCurrentStatusValide) {
 						currentStatus = status;
 						io.emit('status', status);
 						log.info(data.number + ' ' + supportPhoneNumber + ' '+ currentStatus);
 					}
 					if (
-						currentStatus === 'ANSWERED' ||
-						currentStatus === 'FAILED' ||
-						currentStatus === 'BUSY' ||
-						currentStatus === 'NO ANSWER'
+						currentStatus === requestStatuses.ANSWERED ||
+						currentStatus === requestStatuses.FAILED ||
+						currentStatus === requestStatuses.BUSY ||
+						currentStatus === requestStatuses['NO ANSWER']
 					) {
 						log.info(data.number + ' ' + supportPhoneNumber + ' '+ currentStatus);
 						clearInterval(interval);
