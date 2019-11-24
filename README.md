@@ -16,7 +16,7 @@ PASSWORD = somepassword
 SUPPORT_PHONE_NUMBER = 888888888
 ```
 ## Usage
-To run the application use `npm run dev` in the root category.
+To run the application use `npm run dev` in the root directory.
 
 Application will be available at `localhost:8080`
 
