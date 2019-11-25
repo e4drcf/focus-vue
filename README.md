@@ -21,10 +21,11 @@ To run the application use `npm run dev` in the root directory.
 Application will be available at `localhost:8080`
 
 ## Features
-
+- [x] Install all dependencies in one command
+- [x] Run backend and dev-frontend in one comand
 - [x] Support a bunch of bridges
 - [x] Phone number validation on front and back side
-- [ ] Timer untill the call
 - [x] Logging
 - [x] Error handling
 - [x] Improved UI
+- [ ] Timer untill the call
